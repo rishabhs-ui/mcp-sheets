@@ -1,4 +1,4 @@
-# Antigravity Google Sheets PM Suite
+# Antigravity Google Sheets
 
 > **Transform any Google Sheet into an Executive Agile Sprint & Task Management Hub with a Single Prompt in Google Antigravity.**
 
