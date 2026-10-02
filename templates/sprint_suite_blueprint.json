@@ -1,0 +1,51 @@
+{
+  "project_name": "Agile Sprint & Task Management Suite",
+  "version": "1.0.0",
+  "sheets": [
+    {
+      "title": "Executive Dashboard",
+      "grid_properties": { "rowCount": 40, "columnCount": 15 },
+      "kpi_cards": [
+        { "title": "TOTAL SPRINT TASKS", "formula": "=COUNTA('Task Tracker'!A2:A)", "range": "B4:C5" },
+        { "title": "SPRINT COMPLETION", "formula": "=IFERROR(COUNTIF('Task Tracker'!F2:F, \"Done\")/COUNTA('Task Tracker'!A2:A), 0)", "range": "E4:F5" },
+        { "title": "DELIVERED STORY POINTS", "formula": "=SUMIFS('Task Tracker'!G2:G, 'Task Tracker'!F2:F, \"Done\")", "range": "H4:I5" },
+        { "title": "ACTIVE BLOCKERS", "formula": "=COUNTIF('Task Tracker'!F2:F, \"Blocked\")", "range": "K4:L5" }
+      ],
+      "sparkline": {
+        "range": "B8:L8",
+        "formula": "=SPARKLINE(IFERROR(COUNTIF('Task Tracker'!F2:F, \"Done\")/COUNTA('Task Tracker'!A2:A), 0), {\"charttype\", \"bar\"; \"color1\", \"#10B981\"; \"max\", 1})"
+      }
+    },
+    {
+      "title": "Task Tracker",
+      "headers": [
+        "Task ID", "Title / Summary", "Epic / Feature", "Assignee", "Priority", 
+        "Status", "Story Points", "Hours Spent", "Due Date", "Blocker Notes"
+      ],
+      "sample_rows": [
+        ["TSK-101", "Design OAuth 2.0 Flow Architecture", "Authentication", "Alex Rivera", "P1 - High", "Done", 5, 8, "2026-10-06", ""],
+        ["TSK-102", "Implement JWT Token Refresh Service", "Authentication", "Maria Chen", "P1 - High", "Done", 3, 5, "2026-10-07", ""],
+        ["TSK-103", "Stripe Webhook Event Consumer", "Payments", "Dev Patel", "P0 - Blocker", "In Progress", 8, 12, "2026-10-09", "Waiting for staging API key"],
+        ["TSK-104", "Build Checkout UI Component", "Payments", "Elena Rostova", "P1 - High", "In Progress", 5, 6, "2026-10-10", ""],
+        ["TSK-105", "Automated E2E Playwright Suite", "QA & Testing", "Jordan Bell", "P2 - Medium", "Code Review", 5, 7, "2026-10-11", "PR #341 ready"],
+        ["TSK-106", "Database Query Index Optimization", "Core Platform", "Alex Rivera", "P2 - Medium", "Backlog", 3, 0, "2026-10-12", ""],
+        ["TSK-107", "Customer Invoicing PDF Export", "Billing", "Maria Chen", "P2 - Medium", "Backlog", 5, 0, "2026-10-14", ""],
+        ["TSK-108", "CloudFront Cache Invalidation Lambda", "DevOps", "Dev Patel", "P3 - Low", "Backlog", 2, 0, "2026-10-15", ""]
+      ],
+      "validations": {
+        "Priority": ["P0 - Blocker", "P1 - High", "P2 - Medium", "P3 - Low"],
+        "Status": ["Backlog", "In Progress", "Code Review", "QA", "Done", "Blocked"]
+      }
+    },
+    {
+      "title": "Sprint Overview",
+      "metadata": {
+        "sprint_name": "Sprint 24 - Core Features & Payments",
+        "duration": "2 Weeks (10 Days)",
+        "start_date": "2026-10-05",
+        "end_date": "2026-10-16",
+        "capacity_sp": 40
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "google-sheets": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "sheetcraft-mcp"
+      ],
+      "env": {
+        "SHEETS_TOOLSETS": "all"
+      }
+    }
+  }
+}
